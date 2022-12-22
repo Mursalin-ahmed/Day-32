@@ -1,5 +1,5 @@
 var express = require('express');
-var multer = require('multer')
+var multer = require('multer');
 var app = express();
 
 var storage=multer.diskStorage({
@@ -7,7 +7,7 @@ var storage=multer.diskStorage({
         callBack(null,'./uploads')
     },
     filename:function(req,file,callBack){
-        callBack(null,'file.originalname')
+        callBack(null, file.originalname)
     },
 })
 
@@ -22,9 +22,9 @@ app.post('/',function(req,res){
             console.log("File upload successfull")
         }
     })
-
+    res.end("File upload successfull");
 });
 
-app.listen(8000,function(){
+app.listen(8010,function(){
     console.log("Server run successfully");
 })
